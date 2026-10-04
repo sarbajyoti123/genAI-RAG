@@ -20,7 +20,7 @@ chroma_db = Chroma(persist_directory="./chroma_db", embedding_function=embedding
 
 # chroma similarity search to find the most relevant chunks for a given query
 # k is the number of chunks to return
-chroma_results = chroma_db.similarity_search("What is the main topics ?", k=3)
+chroma_results = chroma_db.similarity_search("Investmenet avenue?", k=3)
 # print(chroma_results[0].page_content)  # print the content of the most relevant chunk
 # print(chroma_results[1].page_content)  # print the content of the most relevant chunk
 # print(chroma_results[2].page_content)  # print the content of the most relevant chunk
@@ -53,7 +53,7 @@ def ask_rag(question):
     """
     # LLM
     llm = ChatGoogleGenerativeAI(
-        model="gemini-3-flash-preview"
+        model="gemini-3-flash-preview", temperature = 0
     )
     response = llm.invoke(prompt)
 
@@ -61,7 +61,7 @@ def ask_rag(question):
 
 
 answer = ask_rag(
-    "What are the main topics of the document?"
+    "Investment avenue?"
 )
 
 print(f"Answer: {answer}")  # print the content of the most relevant chunk

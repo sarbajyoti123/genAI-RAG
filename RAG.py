@@ -1,3 +1,5 @@
+
+# PDF without IMAGE--------------------->
 # PDF
 #  ↓
 # PyPDFLoader
@@ -17,6 +19,22 @@
 # Gemini Answer
 
 
+# For modern enterprise RAG, a common pattern is:
+# PDF
+#  ↓
+# Convert PDF Pages → Images
+#  ↓
+# Gemini Vision OCR
+#  ↓
+# Chunking
+#  ↓
+# Gemini Embeddings
+#  ↓
+# Chroma
+#  ↓
+# Retriever
+#  ↓
+# Gemini Answer
 
 #library used to call the Gemini API
 from langchain_google_genai import ChatGoogleGenerativeAI
