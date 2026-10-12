@@ -43,6 +43,7 @@ def tool_internet_search(query: str) -> str:
 
 @tool
 def tool_call_my_rag(query: str) -> str:
+    """tool to perform my internal langchain chroma db search to get data"""
     #library used to store the embeddings in a vector database
     from langchain_chroma import Chroma
 
@@ -92,5 +93,12 @@ response = react_agent.invoke(
 
 )  # Invoke the ReAct agent with a query
 # Print the exact answer of the response
-print(response["messages"][-1].content)  # Print the text of the response
+print(response["messages"][-1].content[0]["text"])  # Print the text of the response
+
+usage = response["messages"][-1].usage_metadata
+
+print("Input Tokens :", usage["input_tokens"])
+print("Output Tokens:", usage["output_tokens"])
+print("Total Tokens :", usage["total_tokens"])
+
 
